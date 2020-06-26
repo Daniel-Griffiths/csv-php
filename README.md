@@ -1,6 +1,6 @@
 # CSV
 
-A quick utility library for working with CSV's in PHP
+A quick utility library for working with CSV's in PHP. See `/tests` for examples.
 
 ## Installation
 
@@ -18,7 +18,7 @@ require __DIR__.'/../vendor/autoload.php';
 use DanielGriffiths\CSV;
 
 // Convert a CSV file to a array
-$csv = CSV::fromFile('file.csv');
+$rows = CSV::fromFile(__DIR__.'/file.csv');
 
 // Convert an array to a CSV
 $file = CSV::fromArray([
