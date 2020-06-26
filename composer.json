@@ -1,0 +1,32 @@
+{
+  "name": "daniel-griffiths/csv",
+  "type": "library",
+  "description": "A quick utility library for working with CSV's",
+  "keywords": [
+    "daniel-griffiths",
+    "csv",
+    "php"
+  ],
+  "homepage": "https://github.com/daniel-griffiths/csv",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Daniel Griffiths",
+      "email": "contact@danielgriffiths.dev",
+      "homepage": "http://danielgriffiths.dev",
+      "role": "Owner"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "DanielGriffiths\\": "src"
+    }
+  },
+  "require": {
+    "php": "~7.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^8.3.5",
+    "phpstan/phpstan": "^0.11"
+  }
+}
