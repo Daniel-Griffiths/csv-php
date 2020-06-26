@@ -20,7 +20,7 @@ use DanielGriffiths\CSV;
 // Convert a CSV file to a array
 $rows = CSV::fromFile(__DIR__.'/file.csv');
 
-// Convert an array to a CSV
+// Convert an array to a CSV string
 $file = CSV::fromArray([
     [
         'animal' => 'Dog',
