@@ -9,12 +9,17 @@ namespace DanielGriffiths;
 class CSV
 {
     /**
+     * @var string
+     */
+    public static $csv = "";
+
+    /**
      * Create a CSV string from an array of objects
      *
      * @param array $rows
-     * @return string
+     * @return self
      */
-    public static function fromArray(array $rows): string
+    public static function fromArray(array $rows): self
     {
         $outputBuffer = fopen('php://temp/maxmemory:1048576', 'w');
 
@@ -32,11 +37,11 @@ class CSV
 
         rewind($outputBuffer);
 
-        $csv = stream_get_contents($outputBuffer);
+        self::$csv = stream_get_contents($outputBuffer);
 
         fclose($outputBuffer);
 
-        return $csv;
+        return new static;
     }
 
     /**
@@ -53,5 +58,27 @@ class CSV
         return array_map(function ($row) use ($header) {
             return array_combine($header, $row);
         }, $rows);
+    }
+
+    /**
+     * Downloads the csv as a file
+     *
+     * @param string $filename
+     * @return void
+     */
+    public static function download(string $filename): void
+    {
+        header("Content-Disposition: attachment; filename=\"{$filename}\";");
+        echo self::$csv;
+    }
+
+    /**
+     * Returns the csv as a string
+     *
+     * @return string
+     */
+    public static function toString(): string
+    {
+        return self::$csv;
     }
 }

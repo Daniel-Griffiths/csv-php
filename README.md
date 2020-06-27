@@ -21,16 +21,20 @@ use DanielGriffiths\CSV;
 $rows = CSV::fromFile(__DIR__.'/file.csv');
 
 // Convert an array to a CSV string
-$file = CSV::fromArray([
+$csvString = CSV::fromArray([
     [
         'animal' => 'Dog',
         'name' => 'Patch',
     ]
-]);
+])->toString();
 
-// Optionally download the CSV
-header('Content-Disposition: attachment; filename="filename.csv";');
-echo $file;
+// Convert an array to a CSV and download it
+CSV::fromArray([
+    [
+        'animal' => 'Dog',
+        'name' => 'Patch',
+    ]
+])->download('file.csv');
 
 ```
 
