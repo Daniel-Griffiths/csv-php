@@ -45,6 +45,18 @@ class CSV
     }
 
     /**
+     * Downloads the CSV as a file
+     *
+     * @param string $filename
+     * @return void
+     */
+    public static function download(string $filename): void
+    {
+        header("Content-Disposition: attachment; filename=\"{$filename}\";");
+        echo self::$csv;
+    }
+
+    /**
      * Convert a CSV to an array
      *
      * @param string filename
@@ -61,19 +73,7 @@ class CSV
     }
 
     /**
-     * Downloads the csv as a file
-     *
-     * @param string $filename
-     * @return void
-     */
-    public static function download(string $filename): void
-    {
-        header("Content-Disposition: attachment; filename=\"{$filename}\";");
-        echo self::$csv;
-    }
-
-    /**
-     * Returns the csv as a string
+     * Returns the CSV as a string
      *
      * @return string
      */
@@ -81,4 +81,14 @@ class CSV
     {
         return self::$csv;
     }
+
+    /**
+     * Writes the CSV data to a file
+     *
+     * @return void
+     */
+    public static function toFile(string $filename): void
+    {
+        file_put_contents($filename, self::$csv);
+    }    
 }

@@ -36,6 +36,14 @@ CSV::fromArray([
     ]
 ])->download('file.csv');
 
+// Convert an array to a CSV and write it to a file
+CSV::fromArray([
+    [
+        'animal' => 'Dog',
+        'name' => 'Patch',
+    ]
+])->toFile('file.csv');
+
 ```
 
 ## Tests
