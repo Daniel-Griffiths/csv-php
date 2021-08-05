@@ -13,7 +13,7 @@ composer require daniel-griffiths/csv dev-master
 ```PHP
 <?php
 
-require __DIR__.'/../vendor/autoload.php';
+require __DIR__.'/vendor/autoload.php';
 
 use DanielGriffiths\CSV;
 
